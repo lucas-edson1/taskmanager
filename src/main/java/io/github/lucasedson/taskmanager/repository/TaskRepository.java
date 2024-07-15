@@ -8,4 +8,5 @@ import io.github.lucasedson.taskmanager.model.TaskModel;
 
 public interface TaskRepository extends CrudRepository<TaskModel, Integer>{
     List<TaskModel> findAll();
+    
 }

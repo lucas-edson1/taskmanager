@@ -20,4 +20,14 @@ public class TaskService {
     public ResponseEntity<TaskModel> cadastrar(TaskModel obj){
         return new ResponseEntity<>(rep.save(obj), HttpStatus.CREATED);
     }
+
+    public ResponseEntity<?> alterar(TaskModel obj){
+        if(rep.existsById(obj.getId())){
+            return new ResponseEntity<>(rep.save(obj), HttpStatus.OK);
+        }
+        else {
+            msg.setMensagem("Código não existente.");
+            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        }
+    }
 }
